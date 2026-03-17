@@ -1,0 +1,33 @@
+import { useState } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import { CameraView, useCameraPermissions } from 'expo-camera';
+
+export default function App() {
+  const [permission, requestPermission] = useCameraPermissions();
+
+  if (!permission) return <View />;
+  if (!permission.granted) {
+    return (
+      <View style={styles.container}>
+        <Text>카메라 권한이 필요합니다!</Text>
+        <Button onPress={requestPermission} title="권한 허용하기" />
+      </View>
+    );
+  }
+
+  return (
+    <View style={styles.container}>
+      <CameraView style={styles.camera} facing="back">
+        <View style={styles.buttonContainer}>
+          <Text style={{color: 'white'}}>카메라가 작동 중입니다!</Text>
+        </View>
+      </CameraView>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: 'center' },
+  camera: { flex: 1 },
+  buttonContainer: { flex: 1, backgroundColor: 'transparent', flexDirection: 'row', margin: 64, justifyContent: 'center', alignItems: 'flex-end' },
+});
