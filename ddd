@@ -1,0 +1,1 @@
+const response = await fetch('http://백엔드서버주소/api/analyze', {
