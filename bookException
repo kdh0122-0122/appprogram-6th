@@ -1,0 +1,7 @@
+@PostMapping("/add")
+	public String submitAddNewBook(@ModelAttribute("NewBook") Book book) {
+		MultipartFile bookImage = book.getBookImage();
+		
+		if(bookImage != null && bookImage.isEmpty() == false) {
+			String saveName = bookImage.getOriginalFilename();
+			File saveFile = new File(this.uploadPath, saveName);
