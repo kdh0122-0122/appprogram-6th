@@ -1,0 +1,10 @@
+  headerTitle: { fontSize: 18, fontWeight: FONT.medium, color: '#fff' },
+  scroll: { flex: 1 },
+  content: { padding: 16, paddingBottom: 32, flexGrow: 1 },
+  guideText: {
+    fontSize: 15,
+    color: COLORS.textSecondary,
+    textAlign: 'center',
+    marginBottom: 16,
+    marginTop: 4,
+  },
